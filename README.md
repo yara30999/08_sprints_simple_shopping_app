@@ -1,16 +1,14 @@
-# sprints_simple_shopping_app_08
+# 💄 Cosmetics App 
 
-A new Flutter project.
+A simplified version of a shopping app interface built with Flutter, featuring a responsive design with multiple sections displaying products and hot offers.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## 📸 Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+<div style="display: flex; gap: 10px;">
+    <img src="readme/home_01.jpg" alt="home" width="200">
+    <img src="readme/home_02.jpg" alt="home" width="200">
+</div>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
