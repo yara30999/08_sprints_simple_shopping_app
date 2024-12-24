@@ -13,11 +13,23 @@ class RouteGenerator {
     switch (settings.name) {
       case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) => const LoginPage());
+      //return _fadeRoute(const LoginPage());
       case Routes.homeRoute:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return _fadeRoute(const HomePage());
       default:
         return unDefinedRoute();
     }
+  }
+
+  static Route<dynamic> _fadeRoute(Widget page) {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 800),
+      reverseTransitionDuration: Duration(milliseconds: 800),
+      pageBuilder: (context, animation, secondaryAnimation) => page,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(opacity: animation, child: child);
+      },
+    );
   }
 
   static Route<dynamic> unDefinedRoute() {
