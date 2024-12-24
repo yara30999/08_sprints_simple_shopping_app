@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/product_model.dart';
+import '../../resources/functions.dart';
 import 'widgets/offers_horiz_list_view.dart';
 import 'widgets/products_grid_view.dart';
 import 'widgets/products_page_view.dart';
@@ -30,14 +32,24 @@ class HomePageBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 20,
         children: [
-          Text(
-            'Our Products',
-            style: Theme.of(context).textTheme.headlineSmall,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'our_products'.tr(),
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              IconButton(
+                  onPressed: () {
+                    changeLocale(context);
+                  },
+                  icon: Icon(Icons.language)),
+            ],
           ),
           ProductsPageView(products: products),
           ProductsGridView(products: products),
           Text(
-            'Hot Offers',
+            'hot_offers'.tr(),
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           HotOffersHorizontalListView(),

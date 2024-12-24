@@ -1,1 +1,33 @@
-{}
+{
+  "app_title": "تطبيق مستحضرات التجميل",
+  "app_name": "مستحضرات التجميل",
+  "our_products": "منتجاتنا",
+  "hot_offers": "العروض الحصرية",
+  "messages": {
+    "added_to_cart": "{productName} تمت إضافته إلى السلة",
+    "success": "نجاح",
+    "account_created": "تم إنشاء الحساب بنجاح",
+    "no_route_found": "لم يتم العثور على مسار"
+  },
+  "validation": {
+    "enter_full_name": "يرجى إدخال الاسم الكامل",
+    "capitalize_first_letter": "يجب أن يكون الحرف الأول كبيرًا",
+    "enter_email": "يرجى إدخال بريدك الإلكتروني",
+    "email_contains_at": "يجب أن يحتوي البريد الإلكتروني على @",
+    "enter_password": "يرجى إدخال كلمة المرور",
+    "password_min_length": "يجب أن تكون كلمة المرور مكونة من 6 أحرف على الأقل",
+    "confirm_password": "يرجى تأكيد كلمة المرور",
+    "passwords_do_not_match": "كلمتا المرور غير متطابقتين"
+  },
+  "buttons": {
+    "close": "إغلاق",
+    "login": "تسجيل الدخول",
+    "sign_up": "إنشاء حساب"
+  },
+  "fields": {
+    "full_name": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirm_password": "تأكيد كلمة المرور"
+  }
+}

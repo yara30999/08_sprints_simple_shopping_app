@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/home_page/home_page.dart';
@@ -36,9 +37,9 @@ class RouteGenerator {
     return MaterialPageRoute(
         builder: (_) => Scaffold(
               appBar: AppBar(
-                title: const Text('no Route Found'),
+                title: Text('messages.no_route_found'.tr()),
               ),
-              body: const Center(child: Text('no Route Found')),
+              body: Center(child: Text('messages.no_route_found'.tr())),
             ));
   }
 }

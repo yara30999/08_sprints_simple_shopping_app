@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../../resources/functions.dart';
 import '../../resources/routes_manager.dart';
 import 'widgets/custom_text_field.dart';
 
@@ -28,44 +30,44 @@ class LoginPageState extends State<LoginPage> {
 
   String? nameValidator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter your full name';
+      return 'validation.enter_full_name'.tr();
     }
     if (!value[0].contains(RegExp(r'[A-Z]'))) {
-      _showErrorSnackBar('First letter must be capitalized');
-      return 'First letter must be capitalized';
+      showErrorSnackBar('validation.capitalize_first_letter'.tr(), context);
+      return 'validation.capitalize_first_letter'.tr();
     }
     return null;
   }
 
   String? emailValidator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter your email';
+      return 'validation.enter_email'.tr();
     }
     if (!value.contains('@')) {
-      _showErrorSnackBar('Email must contain @');
-      return 'Email must contain @';
+      showErrorSnackBar('validation.email_contains_at'.tr(), context);
+      return 'validation.email_contains_at'.tr();
     }
     return null;
   }
 
   String? passwordValidator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter your password';
+      return 'validation.enter_password'.tr();
     }
     if (value.length < 6) {
-      _showErrorSnackBar('Password must be at least 6 characters');
-      return 'Password must be at least 6 characters';
+      showErrorSnackBar('validation.password_min_length'.tr(), context);
+      return 'validation.password_min_length'.tr();
     }
     return null;
   }
 
   String? confirmPassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please confirm your password';
+      return 'validation.confirm_password'.tr();
     }
     if (value != _passwordController.text) {
-      _showErrorSnackBar('Passwords do not match');
-      return 'Passwords do not match';
+      showErrorSnackBar('validation.passwords_do_not_match'.tr(), context);
+      return 'validation.passwords_do_not_match'.tr();
     }
     return null;
   }
@@ -75,28 +77,19 @@ class LoginPageState extends State<LoginPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Success'),
-          content: const Text('Account created successfully'),
+          title: Text('messages.success'.tr()),
+          content: Text('messages.account_created'.tr()),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
                 Navigator.pushReplacementNamed(context, Routes.homeRoute);
               },
-              child: const Text('Close'),
+              child: const Text('buttons.close').tr(),
             ),
           ],
         );
       },
-    );
-  }
-
-  void _showErrorSnackBar(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: Colors.red,
-      ),
     );
   }
 
@@ -119,30 +112,38 @@ class LoginPageState extends State<LoginPage> {
                     height: 120,
                     child: Center(
                       child: Text(
-                        'Login',
+                        'buttons.login'.tr(),
                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
                     ),
                   ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                        onPressed: () {
+                          changeLocale(context);
+                        },
+                        icon: Icon(Icons.language)),
+                  ),
                   CustomTextField(
                     textEditingController: _nameController,
-                    label: 'Full Name',
+                    label: 'fields.full_name'.tr(),
                     validatorFunction: nameValidator,
                   ),
                   CustomTextField(
                     textEditingController: _emailController,
-                    label: 'Email',
+                    label: 'fields.email'.tr(),
                     validatorFunction: emailValidator,
                   ),
                   CustomTextField(
                     textEditingController: _passwordController,
-                    label: 'Password',
+                    label: 'fields.password'.tr(),
                     validatorFunction: passwordValidator,
                     showSuffixIcon: true,
                   ),
                   CustomTextField(
                     textEditingController: _confirmPasswordController,
-                    label: 'Confirm Password',
+                    label: 'fields.confirm_password'.tr(),
                     validatorFunction: confirmPassword,
                     showSuffixIcon: true,
                   ),
@@ -154,7 +155,7 @@ class LoginPageState extends State<LoginPage> {
                       }
                     },
                     child: Text(
-                      'Sign Up',
+                      'buttons.sign_up'.tr(),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),

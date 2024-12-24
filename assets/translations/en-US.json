@@ -1,1 +1,33 @@
-{}
+{
+  "app_title": "Cosmetics App Demo",
+  "app_name": "Cosmetics App",
+  "our_products": "Our Products",
+  "hot_offers": "Hot Offers",
+  "messages": {
+    "added_to_cart": "{productName} added to cart",
+    "success": "Success",
+    "account_created": "Account created successfully",
+    "no_route_found": "No Route Found"
+  },
+  "validation": {
+    "enter_full_name": "Please enter your full name",
+    "capitalize_first_letter": "First letter must be capitalized",
+    "enter_email": "Please enter your email",
+    "email_contains_at": "Email must contain @",
+    "enter_password": "Please enter your password",
+    "password_min_length": "Password must be at least 6 characters",
+    "confirm_password": "Please confirm your password",
+    "passwords_do_not_match": "Passwords do not match"
+  },
+  "buttons": {
+    "close": "Close",
+    "login": "Login",
+    "sign_up": "Sign Up"
+  },
+  "fields": {
+    "full_name": "Full Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password"
+  }
+}

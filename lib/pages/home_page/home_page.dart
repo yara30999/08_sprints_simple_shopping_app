@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'home_page_body.dart';
 
@@ -13,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cosmetics App'),
+        title: Text('app_name'.tr()),
         centerTitle: true,
       ),
       body: HomePageBody(),

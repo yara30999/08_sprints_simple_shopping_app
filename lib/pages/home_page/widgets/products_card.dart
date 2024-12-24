@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import '../../../models/product_model.dart';
 
@@ -12,7 +13,9 @@ class ProductCard extends StatelessWidget {
   void addToCart(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('${product.name} added to cart'),
+        //content: Text('${product.name} added to cart'),
+        content: Text('messages.added_to_cart'
+            .tr(namedArgs: {'productName': product.name})),
         duration: const Duration(seconds: 1),
       ),
     );
