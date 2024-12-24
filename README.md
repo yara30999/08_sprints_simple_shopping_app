@@ -19,5 +19,12 @@ A simplified version of a shopping app interface built with Flutter, featuring a
     <img src="readme/login_03.jpg" alt="home" width="200">
 </div>
 
+***
+#### add shadow to the Text Form Field (just a UI update)
+<div style="display: flex; gap: 10px;">
+    <img src="readme/login_05.jpg" alt="home" width="200">
+    <img src="readme/login_04.jpg" alt="home" width="200">
+    <img src="readme/login_06.jpg" alt="home" width="200">
+</div>
 
 

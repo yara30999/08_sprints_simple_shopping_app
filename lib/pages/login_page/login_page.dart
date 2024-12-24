@@ -97,69 +97,74 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 12.0,
-                children: [
-                  SizedBox(
-                    height: 120,
-                    child: Center(
-                      child: Text(
-                        'buttons.login'.tr(),
-                        style: Theme.of(context).textTheme.headlineLarge,
+      body: Center(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Form(
+              key: _formKey,
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 22.0,
+                  children: [
+                    SizedBox(
+                      height: 40,
+                      child: Center(
+                        child: Text(
+                          'buttons.login'.tr(),
+                          style: Theme.of(context).textTheme.headlineLarge,
+                        ),
                       ),
                     ),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
-                        onPressed: () {
-                          changeLocale(context);
-                        },
-                        icon: Icon(Icons.language)),
-                  ),
-                  CustomTextField(
-                    textEditingController: _nameController,
-                    label: 'fields.full_name'.tr(),
-                    validatorFunction: nameValidator,
-                  ),
-                  CustomTextField(
-                    textEditingController: _emailController,
-                    label: 'fields.email'.tr(),
-                    validatorFunction: emailValidator,
-                  ),
-                  CustomTextField(
-                    textEditingController: _passwordController,
-                    label: 'fields.password'.tr(),
-                    validatorFunction: passwordValidator,
-                    showSuffixIcon: true,
-                  ),
-                  CustomTextField(
-                    textEditingController: _confirmPasswordController,
-                    label: 'fields.confirm_password'.tr(),
-                    validatorFunction: confirmPassword,
-                    showSuffixIcon: true,
-                  ),
-                  const SizedBox(height: 30),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        _showSuccessDialog();
-                      }
-                    },
-                    child: Text(
-                      'buttons.sign_up'.tr(),
-                      style: Theme.of(context).textTheme.bodyLarge,
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: IconButton(
+                          onPressed: () {
+                            changeLocale(context);
+                          },
+                          icon: Icon(Icons.language)),
                     ),
-                  ),
-                ],
+                    CustomTextField(
+                      textEditingController: _nameController,
+                      label: 'fields.full_name'.tr(),
+                      validatorFunction: nameValidator,
+                    ),
+                    CustomTextField(
+                      textEditingController: _emailController,
+                      label: 'fields.email'.tr(),
+                      validatorFunction: emailValidator,
+                    ),
+                    CustomTextField(
+                      textEditingController: _passwordController,
+                      label: 'fields.password'.tr(),
+                      validatorFunction: passwordValidator,
+                      showSuffixIcon: true,
+                    ),
+                    CustomTextField(
+                      textEditingController: _confirmPasswordController,
+                      label: 'fields.confirm_password'.tr(),
+                      validatorFunction: confirmPassword,
+                      showSuffixIcon: true,
+                    ),
+                    const SizedBox(height: 30),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            _showSuccessDialog();
+                          }
+                        },
+                        child: Text(
+                          'buttons.sign_up'.tr(),
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
