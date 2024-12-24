@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home_page/home_page.dart';
+import 'resources/routes_manager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Cosmetics App Demo',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      initialRoute: Routes.loginRoute,
+      onGenerateRoute: RouteGenerator.getRoute,
     );
   }
 }
