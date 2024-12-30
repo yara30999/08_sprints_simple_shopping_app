@@ -30,5 +30,7 @@ A simplified version of a shopping app interface built with Flutter, featuring a
 
 ### demo
 
-https://user-images.githubusercontent.com/yara30999/08_sprints_simple_shopping_app/raw/main/readme/demo.mp4
+
+https://github.com/user-attachments/assets/eb4bb034-6684-45ec-8cd1-12925f55824d
+
 
