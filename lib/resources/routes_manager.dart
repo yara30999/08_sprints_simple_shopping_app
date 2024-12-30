@@ -13,10 +13,11 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.loginRoute:
-        return MaterialPageRoute(builder: (_) => const LoginPage());
-      //return _fadeRoute(const LoginPage());
+        return //MaterialPageRoute(builder: (_) => const LoginPage());
+            _fadeRoute(const LoginPage());
       case Routes.homeRoute:
-        return _fadeRoute(const HomePage());
+        return //MaterialPageRoute(builder: (_) => const HomePage());
+            _fadeRoute(const HomePage());
       default:
         return unDefinedRoute();
     }
@@ -24,8 +25,8 @@ class RouteGenerator {
 
   static Route<dynamic> _fadeRoute(Widget page) {
     return PageRouteBuilder(
-      transitionDuration: Duration(milliseconds: 800),
-      reverseTransitionDuration: Duration(milliseconds: 800),
+      transitionDuration: Duration(seconds: 2),
+      reverseTransitionDuration: Duration(seconds: 2),
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return FadeTransition(opacity: animation, child: child);

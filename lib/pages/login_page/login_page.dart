@@ -83,7 +83,7 @@ class LoginPageState extends State<LoginPage> {
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
-                Navigator.pushReplacementNamed(context, Routes.homeRoute);
+                Navigator.pushNamed(context, Routes.homeRoute);
               },
               child: const Text('buttons.close').tr(),
             ),

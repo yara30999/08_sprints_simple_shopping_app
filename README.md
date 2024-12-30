@@ -28,3 +28,10 @@ A simplified version of a shopping app interface built with Flutter, featuring a
 </div>
 
 
+### demo
+
+<video width="300" height="" controls>
+  <source src="readme/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
