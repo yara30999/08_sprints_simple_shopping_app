@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../resources/functions.dart';
 import '../../resources/routes_manager.dart';
@@ -70,27 +71,6 @@ class RegisterPageState extends State<RegisterPage> {
       return 'validation.passwords_do_not_match'.tr();
     }
     return null;
-  }
-
-  void _showSuccessDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('messages.success'.tr()),
-          content: Text('messages.account_created'.tr()),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, Routes.homeRoute);
-              },
-              child: const Text('buttons.close').tr(),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   @override
@@ -174,9 +154,47 @@ class RegisterPageState extends State<RegisterPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (_formKey.currentState!.validate()) {
-                            _showSuccessDialog();
+                            try {
+                              UserCredential credential = await FirebaseAuth
+                                  .instance
+                                  .createUserWithEmailAndPassword(
+                                      email: _emailController.text.trim(),
+                                      password: _confirmPasswordController.text
+                                          .trim());
+                              if (context.mounted) {
+                                if (credential.user != null) {
+                                  Navigator.pushNamed(
+                                      context, Routes.homeRoute);
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              'errors.something_went_wrong'
+                                                  .tr())));
+                                }
+                              }
+                            } on FirebaseAuthException catch (e) {
+                              if (context.mounted) {
+                                if (e.code == 'weak-password') {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              'errors.weak_password'.tr())));
+                                } else if (e.code == 'email-already-in-use') {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              'errors.email_already_exists'
+                                                  .tr())));
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(e.message.toString())));
+                                }
+                              }
+                            }
                           }
                         },
                         child: Text(
