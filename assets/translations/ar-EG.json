@@ -34,5 +34,12 @@
   "alreadyHaveAnAccount": "هل لديك حساب بالفعل؟",
   "goToLoginPage": "تسجيل الدخول الآن",
   "donotHaveAccount": "ليس لديك حساب؟",
-  "registerNow": "سجل الآن"
+  "registerNow": "سجل الآن",
+  "errors": {
+    "no_user_found": "لم يتم العثور على مستخدم بهذا البريد الإلكتروني.",
+    "wrong_password": "كلمة المرور التي تم إدخالها غير صحيحة.",
+    "weak_password": "كلمة المرور التي تم إدخالها ضعيفة جدًا.",
+    "email_already_exists": "يوجد حساب بالفعل بهذا البريد الإلكتروني.",
+    "something_went_wrong": "حدث خطأ ما؛ حاول مرة أخرى لاحقًا."
+  }
 }

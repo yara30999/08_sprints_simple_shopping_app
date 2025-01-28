@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../resources/functions.dart';
 import '../../resources/routes_manager.dart';
@@ -13,18 +14,12 @@ class LoginPage extends StatefulWidget {
 
 class LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
-
   @override
   void dispose() {
-    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
-    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -70,27 +65,6 @@ class LoginPageState extends State<LoginPage> {
       return 'validation.passwords_do_not_match'.tr();
     }
     return null;
-  }
-
-  void _showSuccessDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('messages.success'.tr()),
-          content: Text('messages.account_created'.tr()),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, Routes.homeRoute);
-              },
-              child: const Text('buttons.close').tr(),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   @override
@@ -163,9 +137,46 @@ class LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
                           if (_formKey.currentState!.validate()) {
-                            _showSuccessDialog();
+                            try {
+                              UserCredential credential = await FirebaseAuth
+                                  .instance
+                                  .signInWithEmailAndPassword(
+                                      email: _emailController.text.trim(),
+                                      password:
+                                          _passwordController.text.trim());
+                              if (context.mounted) {
+                                if (credential.user != null) {
+                                  Navigator.pushNamed(
+                                      context, Routes.homeRoute);
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              'errors.something_went_wrong'
+                                                  .tr())));
+                                }
+                              }
+                            } on FirebaseAuthException catch (e) {
+                              if (context.mounted) {
+                                if (e.code == 'user-not-found') {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              'errors.no_user_found'.tr())));
+                                } else if (e.code == 'wrong-password') {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              'errors.wrong_password'.tr())));
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(e.message.toString())));
+                                }
+                              }
+                            }
                           }
                         },
                         child: Text(

@@ -34,5 +34,12 @@
   "alreadyHaveAnAccount": "Already Have an Account ?   ",
   "goToLoginPage": "Login now",
   "donotHaveAccount": "Don't Have an Account ?   ",
-  "registerNow": "Register Now"
+  "registerNow": "Register Now",
+  "errors": {
+    "no_user_found": "No user found for that email.",
+    "wrong_password": "Wrong password provided for that user.",
+    "weak_password": "The password provided is too weak.",
+    "email_already_exists": "The account already exists for that email.",
+    "something_went_wrong": "Something went wrong; try again later."
+  }
 }
