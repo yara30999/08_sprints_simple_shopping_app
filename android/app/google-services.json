@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "577975333476",
+    "project_id": "sprints-simple-shopping-app",
+    "storage_bucket": "sprints-simple-shopping-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577975333476:android:1eff7c695ccec41d566571",
+        "android_client_info": {
+          "package_name": "com.example.sprints_simple_shopping_app_08"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNGWDHTOSX-JznM_KrahsrJgP0pTtKcGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
