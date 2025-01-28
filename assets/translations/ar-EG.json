@@ -22,12 +22,17 @@
   "buttons": {
     "close": "إغلاق",
     "login": "تسجيل الدخول",
-    "sign_up": "إنشاء حساب"
+    "sign_up": "إنشاء حساب",
+    "sign_in": "تسجيل الدخول."
   },
   "fields": {
     "full_name": "الاسم الكامل",
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
     "confirm_password": "تأكيد كلمة المرور"
-  }
+  },
+  "alreadyHaveAnAccount": "هل لديك حساب بالفعل؟",
+  "goToLoginPage": "تسجيل الدخول الآن",
+  "donotHaveAccount": "ليس لديك حساب؟",
+  "registerNow": "سجل الآن"
 }

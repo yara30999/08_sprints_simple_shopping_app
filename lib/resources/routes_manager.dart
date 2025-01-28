@@ -1,11 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/auth_pages/register_page.dart';
 import '../pages/home_page/home_page.dart';
-import '../pages/login_page/login_page.dart';
+import '../pages/auth_pages/login_page.dart';
 
 class Routes {
   static const String loginRoute = "/";
+  static const String registerRoute = "/Register_route";
   static const String homeRoute = "/home_route";
 }
 
@@ -15,6 +17,9 @@ class RouteGenerator {
       case Routes.loginRoute:
         return //MaterialPageRoute(builder: (_) => const LoginPage());
             _fadeRoute(const LoginPage());
+      case Routes.registerRoute:
+        return //MaterialPageRoute(builder: (_) => const RegisterPage());
+            _fadeRoute(const RegisterPage());
       case Routes.homeRoute:
         return //MaterialPageRoute(builder: (_) => const HomePage());
             _fadeRoute(const HomePage());

@@ -127,11 +127,6 @@ class LoginPageState extends State<LoginPage> {
                           icon: Icon(Icons.language)),
                     ),
                     CustomTextField(
-                      textEditingController: _nameController,
-                      label: 'fields.full_name'.tr(),
-                      validatorFunction: nameValidator,
-                    ),
-                    CustomTextField(
                       textEditingController: _emailController,
                       label: 'fields.email'.tr(),
                       validatorFunction: emailValidator,
@@ -142,13 +137,29 @@ class LoginPageState extends State<LoginPage> {
                       validatorFunction: passwordValidator,
                       showSuffixIcon: true,
                     ),
-                    CustomTextField(
-                      textEditingController: _confirmPasswordController,
-                      label: 'fields.confirm_password'.tr(),
-                      validatorFunction: confirmPassword,
-                      showSuffixIcon: true,
-                    ),
                     const SizedBox(height: 30),
+                    // don't-have-an-account button
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushReplacementNamed(
+                          Routes.registerRoute,
+                        );
+                      },
+                      child: Center(
+                        child: Text.rich(
+                          TextSpan(children: [
+                            TextSpan(
+                              text: tr("donotHaveAccount"),
+                            ),
+                            TextSpan(
+                                text: tr("registerNow"),
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                )),
+                          ]),
+                        ),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: ElevatedButton(
@@ -158,7 +169,7 @@ class LoginPageState extends State<LoginPage> {
                           }
                         },
                         child: Text(
-                          'buttons.sign_up'.tr(),
+                          'buttons.sign_in'.tr(),
                           style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ),

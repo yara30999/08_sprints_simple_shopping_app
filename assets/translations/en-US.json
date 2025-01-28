@@ -22,12 +22,17 @@
   "buttons": {
     "close": "Close",
     "login": "Login",
-    "sign_up": "Sign Up"
+    "sign_up": "Sign Up",
+    "sign_in": "Sign In"
   },
   "fields": {
     "full_name": "Full Name",
     "email": "Email",
     "password": "Password",
     "confirm_password": "Confirm Password"
-  }
+  },
+  "alreadyHaveAnAccount": "Already Have an Account ?   ",
+  "goToLoginPage": "Login now",
+  "donotHaveAccount": "Don't Have an Account ?   ",
+  "registerNow": "Register Now"
 }
